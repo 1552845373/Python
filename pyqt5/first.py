@@ -8,6 +8,7 @@
 import sys
 import untitled
 from PyQt5.QtWidgets import QApplication,QMainWindow
+import apprcc_rc
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
