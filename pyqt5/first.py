@@ -6,18 +6,33 @@
 # @Software : PyCharm
 
 import sys
-import untitled
+from untitled import Ui_MainWindow
 from PyQt5.QtWidgets import QApplication,QMainWindow
-import apprcc_rc
+
+class MyMainWindow(QMainWindow, Ui_MainWindow):
+    def __init__(self, parent=None):
+        super().__init__()
+        self.setupUi(self)
+
+    def __str__(self):
+        return "这是创建的新类，继承所调用的类"
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    mainWindow = QMainWindow()
-    ui = untitled.Ui_MainWindow()
-    ui.setupUi(mainWindow)
-    mainWindow.show()
+    myWin = MyMainWindow()
+    myWin.show()
     sys.exit(app.exec_())
 
+'''实例化调用的类，没有创建新类'''
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     mainWindow = QMainWindow()
+#     ui = untitled.Ui_MainWindow()
+#     ui.setupUi(mainWindow)
+#     mainWindow.show()
+#     sys.exit(app.exec_())
+
+'''纯代码实现窗体'''
 # import sys
 # from PyQt5.QtWidgets import QDesktopWidget,QApplication,QMainWindow
 # from PyQt5.QtGui import QIcon
