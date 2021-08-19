@@ -88,7 +88,7 @@ def setalpha(openfilepath = 'D:\\中国近海sst分布图\\未处理\\sst.png', 
             data = img.getpixel((i,j))  # 获取一个像素
             if (data.count(255) == 4):  # RGBA都是255，改成透明色
                 img.putpixel((i,j),(255,255,255,0))
-    img.save(savefilepath)  # 保存图片
+    img.save(savefilepath)
 
 if __name__ == '__main__':
     for i in range(3):
