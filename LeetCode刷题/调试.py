@@ -62,27 +62,13 @@ import copy
 # if __name__ == '__main__':
 #     print(Solution().merge([[4,5],[2,4],[4,6],[3,4],[0,0],[1,1],[3,5],[2,2]]))
 
-class Solution:
-    def merge_sort(self, nums, l, r):
-        if l == r:
-            return
-        mid = (l + r) // 2
-        self.merge_sort(nums, l, mid)
-        self.merge_sort(nums, mid + 1, r)
-        tmp = []
-        i, j = l, mid + 1
-        while i <= mid or j <= r:
-            if i > mid or (j <= r and nums[j] < nums[i]):
-                tmp.append(nums[j])
-                j += 1
-            else:
-                tmp.append(nums[i])
-                i += 1
-        nums[l: r + 1] = tmp
-
-    def sortArray(self, nums: List[int]) -> List[int]:
-        self.merge_sort(nums, 0, len(nums) - 1)
-        return nums
-
-if __name__ == '__main__':
-    print(Solution().sortArray([12, 33, 199, 0, 54, 33, 11]))
+def insert_sort(nums):
+    n = len(nums)
+    for i in range(1,n):
+        j = i
+        tmp = nums[i]
+        while j>0 and nums[j]<nums[j-1]:
+            nums[j] = nums[j-1]
+            j -= 1
+        nums[j-1] = tmp
+    return nums

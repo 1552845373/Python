@@ -1,10 +1,3 @@
-#!/usr/bin/python3
-# -*- coding : utf-8 -*-
-# @Time : 2021/11/18 10:39
-# @Author : Cheng
-# @File : 感知器.py
-# @Software : PyCharm
-
 from functools import reduce
 
 class Perceptron(object):
@@ -18,11 +11,13 @@ class Perceptron(object):
         self.weights = [0.0 for _ in range(input_num)]
         # 偏置项初始化为0
         self.bias = 0.0
+
     def __str__(self):
         '''
         打印学习到的权重、偏置项
         '''
         return 'weights\t:%s\nbias\t:%f\n' % (self.weights, self.bias)
+
     def predict(self, input_vec):
         '''
         输入向量，输出感知器的计算结果
@@ -36,12 +31,14 @@ class Perceptron(object):
                    map(lambda x: x[0] * x[1],
                        zip(input_vec, self.weights))
                 , 0.0) + self.bias)
+
     def train(self, input_vecs, labels, iteration, rate):
         '''
         输入训练数据：一组向量、与每个向量对应的label；以及训练轮数、学习率
         '''
         for i in range(iteration):
             self._one_iteration(input_vecs, labels, rate)
+
     def _one_iteration(self, input_vecs, labels, rate):
         '''
         一次迭代，把所有的训练数据过一遍
@@ -55,6 +52,7 @@ class Perceptron(object):
             output = self.predict(input_vec)
             # 更新权重
             self._update_weights(input_vec, output, label, rate)
+
     def _update_weights(self, input_vec, output, label, rate):
         '''
         按照感知器规则更新权重
@@ -75,6 +73,7 @@ def f(x):
     定义激活函数f
     '''
     return 1 if x > 0 else 0
+
 def get_training_dataset():
     '''
     基于and真值表构建训练数据
@@ -86,6 +85,7 @@ def get_training_dataset():
     # [1,1] -> 1, [0,0] -> 0, [1,0] -> 0, [0,1] -> 0
     labels = [1, 0, 0, 0]
     return input_vecs, labels
+
 def train_and_perceptron():
     '''
     使用and真值表训练感知器

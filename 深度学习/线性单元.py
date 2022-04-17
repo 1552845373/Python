@@ -1,11 +1,4 @@
-#!/usr/bin/python3
-# -*- coding : utf-8 -*-
-# @Time : 2021/11/23 11:04
-# @Author : Cheng
-# @File : 线性单元.py
-# @Software : PyCharm
-
-from 感知器 import Perceptron
+from perceptron import Perceptron
 
 #定义激活函数f
 f = lambda x: x

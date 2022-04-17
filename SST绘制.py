@@ -55,8 +55,7 @@ def drawing(lon_new, lat_new, sst_new, savefilepath='D:\\中国近海sst分布�
     # map.fillcontinents(color = 'white', lake_color = 'white')
     # map.drawcoastlines()
     map.readshapefile('C:\\Users\\陌离\\Desktop\\全球海岸线shape\\GSHHS_h_L1', name='country', color='w')
-    # D:\\ArcGIS10.3\\海岸线数据\\全球海岸线\\海岸线
-    # C:\\Users\\陌离\\Desktop\\全球海岸线shape\\GSHHS_h_L1
+
     for shp in map.country:
         poly = Polygon(xy=shp, facecolor='w') # 填充
         ax.add_patch(poly)
